@@ -21,7 +21,6 @@ router.get('/get_orders', async (req, res) => {
 
 router.post('/save_order', async (req, res) => {
     let fullDateOrder = new Date()
-    fullDateOrder = fullDateOrder.getTime() + (7 * 60 * 60 * 60)
     let dateOrder = fullDateOrder.getDate()
     let monthOrder = fullDateOrder.getMonth() + 1
     let hourOrder = fullDateOrder.getHours()
