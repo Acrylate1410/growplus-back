@@ -10,6 +10,10 @@ const cors = (req, res, next) => {
 router.use(express.json())
 router.use(cors)
 
+router.get('/', (req, res) => {
+    
+})
+
 router.get('/get_orders', async (req, res) => {
     try {
         const orders = await Model.find().sort({"sortFodder": -1})
