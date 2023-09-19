@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose');
+var cron = require('node-cron');
 const routes = require('./routes/orders');
 const app = express()
 app.use('/orders', routes)
@@ -14,6 +15,9 @@ database.on('error', (error) => {
 database.once('open', () => {
   console.log('Database Connected');
 })
+cron.schedule('*/1 * * * *', () => {
+  console.log('running a task every minutes');
+});
 const port = 8080
 
 app.listen(port, () => {
