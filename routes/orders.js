@@ -11,7 +11,7 @@ router.use(express.json())
 router.use(cors)
 
 router.get('/', (req, res) => {
-    res.send("Cron")
+
 })
 
 router.get('/get_orders', async (req, res) => {
