@@ -1,9 +1,11 @@
 require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose');
-const routes = require('./routes/orders');
+const routes1 = require('./routes/orders');
+const routes2 = require('./routes/articles');
 const app = express()
-app.use('/orders', routes)
+app.use('/orders', routes1)
+app.use('/articles', routes2)
 const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString);
 const database = mongoose.connection;
