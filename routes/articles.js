@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router()
 const Model = require('../model/article');
 var bodyParser = require('body-parser');
+
 var fs = require('fs');
 const cors = (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -18,7 +19,7 @@ router.use(bodyParser.json())
 var multer = require('multer');
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "../front/public")
+        cb(null, "./routes/contents")
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
