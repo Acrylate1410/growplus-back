@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router()
 const Model = require('../model/article');
 var bodyParser = require('body-parser');
-
 var fs = require('fs');
 const cors = (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -10,6 +9,8 @@ const cors = (req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, Content-Type");
     next();
 };
+
+
 const path = require("path");
 router.use(express.static(path.join(__dirname, "./uploads/")));
 router.use(express.json())
@@ -17,14 +18,16 @@ router.use(cors)
 router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
 var multer = require('multer');
+
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./routes/contents")
+        cb(null, "../front/public")
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
     }
 });
+
 var upload = multer({ storage: storage })
 router.post("/upload", upload.fields([{ name: 'thumbnail', maxCount: 1 }, { name: 'content', maxCount: 1 }]), (req, res) => {
     let fullDateOrder = new Date()
