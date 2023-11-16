@@ -21,19 +21,6 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    subdivision: {
-        required: true,
-        type: String
-    },
-    district: {
-        required: true,
-        type: String
-    },
-    city: {
-        required: true,
-        type: String
-    },
-
     quantity: {
         required: true,
         type: Number
