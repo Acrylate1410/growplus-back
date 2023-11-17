@@ -26,7 +26,7 @@ const dataSchema = new mongoose.Schema({
         type: Number
     },
     note: {
-        required: false,
+        required: true,
         type: Number
     },
     status: {
