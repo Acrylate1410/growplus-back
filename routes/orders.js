@@ -24,6 +24,7 @@ router.get('/get_orders', async (req, res) => {
 })
 
 router.post('/save_order', async (req, res) => {
+
     let fullDateOrder = new Date()
     fullDateOrder.setTime(fullDateOrder.getTime() + 7 * 60 * 60 * 1000)
     let dateOrder = fullDateOrder.getDate()
@@ -57,6 +58,7 @@ router.post('/save_order', async (req, res) => {
         note: req.body.note,
         status: "Chưa giao hàng"
     })
+
     try {
         const newOrder = await order.save()
         res.status(201).json(newOrder)
