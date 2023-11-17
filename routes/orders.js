@@ -54,6 +54,7 @@ router.post('/save_order', async (req, res) => {
         phone: req.body.phone,
         address: req.body.address,
         quantity: req.body.quantity,
+        note: req.body.note,
         status: "Chưa giao hàng"
     })
     try {
