@@ -24,6 +24,10 @@ const dataSchema = new mongoose.Schema({
     content: {
         required: true,
         type: String
+    },
+    src: {
+        required: true,
+        type: String
     }
 })
 
