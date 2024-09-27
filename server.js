@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 const express = require('express')
 const mongoose = require('mongoose');
 //const { createServer } = require('node:http');
@@ -25,7 +25,7 @@ app.use(cors)
 
 app.use('/orders', routes1)
 app.use('/articles', routes2)
-const mongoString = process.env.DATABASE_URL
+const mongoString = "mongodb+srv://quangnm1410:spectrum9656@gporder.yyfloic.mongodb.net/"
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 database.on('error', (error) => {
